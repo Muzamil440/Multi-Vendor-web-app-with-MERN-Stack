@@ -1,0 +1,29 @@
+{
+  "name": "multi_vendor_mern_3",
+  "version": "1.0.0",
+  "description": "\"# Multi-Vendor-web-app-with-MERN-Stack\"",
+  "homepage": "https://github.com/Muzamil440/Multi-Vendor-web-app-with-MERN-Stack#readme",
+  "bugs": {
+    "url": "https://github.com/Muzamil440/Multi-Vendor-web-app-with-MERN-Stack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muzamil440/Multi-Vendor-web-app-with-MERN-Stack.git"
+  },
+  "license": "ISC",
+  "author": "Muzamil Hussain",
+  "type": "commonjs",
+  "main": "backend/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.1",
+    "nodemailer": "^7.0.5",
+    "nodemon": "^3.1.10"
+  }
+}
