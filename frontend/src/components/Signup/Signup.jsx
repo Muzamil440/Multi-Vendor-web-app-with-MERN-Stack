@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { RxAvatar } from 'react-icons/rx';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../../styles/styles';
+import axios from 'axios';
+import { server } from '../../server';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -10,14 +12,33 @@ const Signup = () => {
   const [visible, setVisible] = useState(false);
   const [password, setPassword] = useState('');
   const [avatar, setAvatar] = useState(null);
-
-  const handleSubmit = () => {
-    console.log('ffff');
-  };
+  const navigate = useNavigate();
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     setAvatar(file);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+    const newForm = new FormData();
+
+    newForm.append('file', avatar);
+    newForm.append('name', name);
+    newForm.append('email', email);
+    newForm.append('password', password);
+
+    axios
+      .post(`${server}/user/create-user`, newForm, config)
+      .then((res) => {
+        if (res.data.success === true) {
+          navigate('/');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -30,15 +51,17 @@ const Signup = () => {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
+            {/* Taking Name Input */}
             <div>
               <label
-                htmlFor="email"
+                htmlFor="name"
                 className="block text-sm font-medium text-gray-700"
               >
                 Full Name
               </label>
               <div className="mt-1">
                 <input
+                  id="name"
                   type="text"
                   name="text"
                   autoComplete="name"
@@ -50,6 +73,7 @@ const Signup = () => {
               </div>
             </div>
 
+            {/* Taking Email Input */}
             <div>
               <label
                 htmlFor="email"
@@ -59,6 +83,7 @@ const Signup = () => {
               </label>
               <div className="mt-1">
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   autoComplete="email"
@@ -70,6 +95,7 @@ const Signup = () => {
               </div>
             </div>
 
+            {/* Taking Password Input*/}
             <div>
               <label
                 htmlFor="password"
@@ -79,6 +105,7 @@ const Signup = () => {
               </label>
               <div className="mt-1 relative">
                 <input
+                  id="password"
                   type={visible ? 'text' : 'password'}
                   name="password"
                   autoComplete="current-password"
@@ -148,6 +175,7 @@ const Signup = () => {
               </button>
             </div>
 
+            {/* If Already have any account? */}
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Already have any account?</h4>
               <Link to="/login" className="text-blue-600 pl-2">
