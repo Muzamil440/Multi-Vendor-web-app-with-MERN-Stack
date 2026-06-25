@@ -1,5 +1,6 @@
 const express = require('express');
-const ErrorHandler = require('./utils/ErrorHandler');
+// const ErrorHandler = require('./utils/ErrorHandler');
+const ErrorHandler = require('./middleware/error');
 const app = express();
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -7,7 +8,20 @@ const cors = require('cors');
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use((req, res, next) => {
+  console.log('=================================');
+  console.log('METHOD:', req.method);
+  console.log('URL:', req.url);
+  console.log('ORIGIN:', req.headers.origin);
+  console.log('=================================');
+  next();
+});
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  }),
+);
 app.use('/', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,6 +36,7 @@ const user = require('./controller/user');
 app.use('/api/v2/user', user);
 
 // it's for ErrorHandling
+// app.use(ErrorHandler);
 app.use(ErrorHandler);
 
 module.exports = app;
