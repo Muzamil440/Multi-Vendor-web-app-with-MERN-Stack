@@ -222,20 +222,21 @@ export const categoriesData = [
     title: 'Shoes',
     subTitle: '',
     image_Url:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU',
+      'https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNob2VzfGVufDB8fDB8fHww',
   },
   {
     id: 6,
     title: 'Gifts',
     subTitle: '',
     image_Url:
-      'https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg',
+      'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2lmdHN8ZW58MHx8MHx8fDA%3D',
   },
   {
     id: 7,
     title: 'Pet Care',
     subTitle: '',
-    image_Url: 'https://cdn.openpr.com/T/c/Tc15444071_g.jpg',
+    image_Url:
+      'https://images.unsplash.com/photo-1563460716037-460a3ad24ba9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGV0JTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     id: 8,
@@ -271,7 +272,7 @@ export const productData = [
     image_Url: [
       {
         public_id: 'test',
-        url: 'https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png',
+        url: 'https://images.unsplash.com/photo-1717839669697-21b401b56e63?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIxfHx8ZW58MHx8fHx8',
       },
       {
         public_id: 'test',
@@ -320,7 +321,7 @@ export const productData = [
     rating: 5,
     total_sell: 80,
     stock: 10,
-    category: 'Mobile & Tablets',
+    // category: 'Mobile & Tablets',
   },
   {
     id: 1,
@@ -351,7 +352,7 @@ export const productData = [
     rating: 4,
     total_sell: 75,
     stock: 10,
-    category: 'Computers & Laptop',
+    // category: 'Computers & Laptop',
   },
   {
     id: 4,
@@ -413,7 +414,7 @@ export const productData = [
     rating: 5,
     total_sell: 49,
     stock: 10,
-    category: 'Shoes',
+    // category: 'Shoes',
   },
   {
     id: 1,
